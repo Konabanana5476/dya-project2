@@ -1,0 +1,41 @@
+# コンテナに入れないファイル一覧。
+# proxy.js / dya_online.html / dya_offline.html / team_editor の配信用素材だけをデプロイする。
+
+# 開発・ビルド系（ホストでビルド済の HTML を使うので build.js は不要）
+build.js
+proxy_passthrough.js
+start.bat
+
+# ドキュメント・ログ・テンプレート
+CLAUDE.md
+README*
+*.md
+
+# ビルド前の素材（C:\Users 配下のアセットは別パスなので元々入らないが念のため）
+src/
+assets/
+
+# Git
+.git
+.gitignore
+.github
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+.vscode
+.idea
+
+# Fly 自身の設定
+fly.toml
+.fly/
+
+# Node が万が一あっても無視
+node_modules
+npm-debug.log*
+yarn-debug.log*
+
+# ローカル環境ファイル
+.env
+.env.*
+*.local

@@ -1,0 +1,36 @@
+# Fly.io アプリ設定
+# 初回デプロイ時に `fly launch --no-deploy` でアプリ名と region を確定させる。
+# その後:
+#   fly secrets set PROXY_AUTH_PIN=<好きな暗証番号>
+#   fly deploy
+# ※ app の値は launch 時に上書きされるので、適宜編集して OK。
+
+app = "dya-proxy"
+primary_region = "nrt"   # 東京リージョン
+
+[build]
+  # Dockerfile を使う
+
+[env]
+  PORT = "8080"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"     # 未使用時に machine を停止して無料枠を保つ
+  auto_start_machines = true      # アクセス時に自動起動
+  min_machines_running = 0
+  processes = ["app"]
+
+  [[http_service.checks]]
+    interval = "30s"
+    timeout = "5s"
+    grace_period = "10s"
+    method = "GET"
+    path = "/auth"   # 認証画面が 200 を返すなら proxy 起動成功
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1

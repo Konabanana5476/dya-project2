@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: dya-proxy
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /auth
+    envVars:
+      - key: PROXY_AUTH_PIN
+        sync: false

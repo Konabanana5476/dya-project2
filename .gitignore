@@ -1,0 +1,11 @@
+.claude/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Local-only: extracted dya.js (regeneratable from dya_offline.html via recover_assets.js)
+dya_extracted.js
+
+# Local-only: user's team edits (regenerated from default_teams.json on first Flask launch)
+team_editor/custom_teams.json

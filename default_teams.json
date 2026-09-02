@@ -23,7 +23,7 @@
       "players": [
         {
           "slot": 0,
-          "name": "伊達",
+          "name": "宮本",
           "face_ref": "yB",
           "skin_color": "#434343",
           "is_pitcher": false,
@@ -54,10 +54,10 @@
             "pos_type": 0
           },
           "batter_stats": {
-            "power": 7,
-            "contact": 9,
-            "eye": 8,
-            "speed": 9,
+            "power": 10,
+            "contact": 10,
+            "eye": 10,
+            "speed": 10,
             "defense_unused_0": 1,
             "defense_unused_1": 1,
             "defense_unused_2": 4,
